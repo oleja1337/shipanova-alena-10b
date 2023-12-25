@@ -1,0 +1,183 @@
+1.
+def combine_arrays(x, y):
+    if len(x) != len(y):
+        return None
+    result = []
+    for i in range(len(x)):
+        result.append((x[i], y[i]))
+    return result
+x_coords = [6, 8, 46]
+y_coords = [4, 43, 56]
+combined_coords = combine_arrays(x_coords, y_coords)
+print(combined_coords)
+2.
+def greet_guests(guests):
+    for guest in guests:
+        print("Привет, " + guest + "!")
+guest_list = ["Маша", "Петя", "Олег"]
+greet_guests(guest_list)
+3.
+word = input('Введите слово: ')
+def has_duplicate_letters(word):
+    for i in range(len(word) - 1):
+        if word[i] == word[i + 1]:
+            return True
+    return False
+result = has_duplicate_letters(word)
+print(result)
+4.
+string = 'привет   пока'
+def remove_extra_spaces(string):
+    string = string.strip()
+    result = ''
+    previous_char = ''
+    for char in string:
+        if previous_char != ' ' or char != ' ':
+            result += char
+        previous_char = char
+    return result
+result = remove_extra_spaces(string)
+print(result)
+5.
+import math
+radius = 5.2
+height = 4
+def calculate_water_mass(radius, height):
+    water_density = 1000
+    cylinder_volume = math.pi * radius**2 * height
+    water_mass = water_density * cylinder_volume
+    water_mass = round(water_mass, 2)
+    return water_mass
+water_mass = calculate_water_mass(radius, height)
+print("Масса воды:", water_mass, "кг")
+6.
+input_string = "54, 43, 26, 8"
+def multiply_numbers(string):
+    numbers = string.split(", ")
+    result = 1
+    for num in numbers:
+        result *= int(num)
+    return result
+result = multiply_numbers(input_string)
+print(result)
+7.
+boxes = [[6, 4, 3], [2, 6, 4], [5, 3, 6]]
+def calculate_total_volume(boxes):
+    total_volume = 0
+    for box in boxes:
+        volume = box[0] * box[1] * box[2]
+        total_volume += volume
+    return total_volume
+total_volume = calculate_total_volume(boxes)
+print(total_volume)
+8.
+import math
+def distance(a, b):
+    x1, y1 = a['x'], a['y']
+    x2, y2 = b['x'], b['y']
+    dist = math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
+    return round(dist, 3)
+a = {'x': 2, 'y': 2}
+b = {'x': 7, 'y': 5}
+result = distance(a, b)
+print(result)
+9.
+def hacker_string(string):
+    hacker_string = string.replace("а", "4")
+    hacker_string = hacker_string.replace("е", "3")
+    hacker_string = hacker_string.replace("и", "1")
+    hacker_string = hacker_string.replace("о", "0")
+    hacker_string = hacker_string.replace("с", "5")
+    return hacker_string
+input_string = "я такой хакер пентагон взломал лол"
+encoded_string = hacker_string(input_string)
+print(encoded_string)
+10.
+def calculate_array(nums):
+    result = []
+    total_sum = 0
+    for num in nums:
+        total_sum += num
+        result.append(total_sum)
+    return result
+array = [2, 54, 1, 23, 12, 7]
+result_array = calculate_array(array)
+print(result_array)  
+11.
+def is_increasing(numbers):
+    for i in range(len(numbers)-1):
+        if numbers[i] >= numbers[i+1]:
+            return False
+    return True
+a = [1, 432 ,543, 765, 4354]
+print(is_increasing(a))
+12.
+def find_median(arr):
+    sorted_arr = sorted(arr)
+    n = len(arr)
+    mid = n // 2
+    if n % 2 == 0:
+        median = (sorted_arr[mid - 1] + sorted_arr[mid]) / 2
+    else:
+        median = sorted_arr[mid]
+    return median
+arr = [43, 76, 87, 56, 98, 45, 2, 64, 7]
+result = find_median(arr)
+print(result)
+13.
+letter_presses = {
+    'a': 1,
+    'b': 2,
+    'c': 3,
+    'd': 4,
+    'e': 5,
+    'f': 6,
+    'g': 7,
+    'h': 8,
+    'i': 9,
+    'j': 10,
+    'k': 11,
+    'l': 12,
+    'm': 13,
+    'n': 14,
+    'o': 15,
+    'p': 16,
+    'q': 17,
+    'r': 18,
+    's': 19,
+    't': 20,
+    'u': 21,
+    'v': 22,
+    'w': 23,
+    'x': 24,
+    'y': 25,
+    'z': 26,
+    ' ': 27,
+}
+message = input("Введите сообщение: ")
+message = message.lower()
+for letter in message:
+    if letter in letter_presses:
+        presses = letter_presses[letter]
+        for _ in range(presses):
+            print("Нажимаем кнопку")
+    else:
+        print(f"Символ '{letter}' не может быть набран с помощью данного устройства.")
+14.
+def reverse_string(string):
+    reversed_string = string[::-1]
+    reversed_string = reversed_string.swapcase()
+    return reversed_string
+input_string = "Привет, Аркадий, пошли в МакДак"
+output_string = reverse_string(input_string)
+print(output_string)
+15.
+def remove_enemies(names, enemies):
+    for enemy in enemies:
+        if enemy in names:
+            names.remove(enemy)
+    return names
+names = ["Миша", "Саша", "Маша", "Паша", "Петя"]
+enemies = ["Паша", "Саша"]
+filtered_names = remove_enemies(names, enemies)
+print(filtered_names)

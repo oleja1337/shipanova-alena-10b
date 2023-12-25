@@ -1,0 +1,203 @@
+skrin 1
+
+1. 
+a = [1, 2, 3, 4, 5, 6]
+a.reverse()
+print(a)
+2.
+a = [1, 5443, 324, 764]
+def change(a):
+    a[0], a[-1] = a[-1], a[0]
+    return a
+print(change(a))
+3.
+a = []
+def to_list(*args):
+    return list(args)
+print(to_list(1, 2, 3, 'кран'))
+4.
+a = [123,434,5657,3452,1465,2454]
+def useless(a):
+    return max(a) / len(a)
+print(useless(a))
+5.
+a = [123,434,5657,3452,1465,2454]
+def list_sort(a):
+    a.sort(key=lambda x: abs(x), reverse=True)
+    return a
+print (list_sort(a))
+6.
+a = ["крокодил", "флаг", "гречка", "мяч"]
+def all_eq(a):
+    b = max(a, key=lambda x: len(x))
+    c = len(b)
+    return [item.ljust(c, "_") for item in a]
+print(all_eq(a))
+
+2 skrin
+
+1.
+a = int(input('введите любое число: '))
+def to_float(a):
+    if isinstance(a, (int, float)):
+        return float(a)
+    else:
+         return "невозможно преобразовать"
+print(to_float(a))
+2.
+a = float(input('введите любые четыре числa: '))
+b = float(input())
+c = float(input())
+d = float(input())
+def avg_5(a, b, c, d):
+    return round((a+b+c+d)/4, 5)
+print(avg_5(a,b,c,d))
+3.
+a = 6.54
+b = 5.2
+def mul_to_int(a, b):
+    res = a * b
+    if float(res).is_integer():
+        return int(res)
+    else:
+        return res
+print(mul_to_int(a, b))
+4.
+V = 34543
+r = ((3 * V / (4 * 3.14)) ** (1/3))
+print(r)
+
+skrin 3
+
+1.
+a = 6.0
+def dislike_6(a):
+    if (type(a) is float or type(a) is int) and a == 6.0:
+        return "Только не 6!"
+    else:
+        return True
+print(dislike_6(a))
+2.
+a = (input("введите букву: "))
+def help_bool(a):
+    if a == 'к':
+        return "Коммутативность логических операций означает, что порядок операндов не влияет на результат операции."
+    elif a == 'а':
+        return "Ассоциативность логических операций означает, что порядок выполнения операций не влияет на результат операции."
+    elif a == 'д':
+        return "Дистрибутивность логических операций означает, что можно переставить операнды и они будут равны."
+    elif a == 'м':
+        return "Правило де Моргана позволяет изменить операцию И на ИЛИ и наоборот, а также инвертировать операнды."
+    else:
+        return "Для получения информации по каждому свойству введите: 'к' - коммутативность, 'а' - ассоциативность, 'д' - дистрибутивность, 'м' - правило де Моргана."
+print(help_bool(a))
+
+skriny 4 i 5 = 1
+
+skrin 6
+1.
+a = []
+def to_dict(a):
+    dictionary = {}
+    for item in a:
+        dictionary[item] = item
+    return dictionary
+my_list = ['кот', 'собака', 'лягушка']
+my_dict = to_dict(my_list)
+print(my_dict)
+2.
+my_dict = {'first_one': 'we can do it'}
+def biggest_dict(**kwargs):
+    my_dict.update(**kwargs)
+biggest_dict(tree='дуб', stol='пыльный')
+print(my_dict)
+3.
+def count_it(sequence):
+    counts = {} 
+    for num in sequence:
+        if num.isdigit(): 
+            num = int(num) 
+            counts[num] = counts.get(num, 0) + 1
+    sorted_counts = dict(sorted(counts.items(), key=lambda x: x[1], reverse=True)) 
+    top_three = {k: sorted_counts[k] for k in list(sorted_counts)[:3]} 
+    return top_three
+print(count_it('543767756789870'))
+4.
+my_dict = {
+  "key1": "value1",
+  "key2": "value2",
+  "key3": "value3",
+  "key4": "value4",
+  "key5": "value5"
+}
+keys = list(my_dict.keys())
+values = list(my_dict.values())
+keys[0], keys[-1] = keys[-1], keys[0]
+values[0], values[-1] = values[-1], values[0]
+del my_dict[keys[1]]
+my_dict["new_key"] = "new_value"
+print(my_dict)
+
+stroki
+1.
+def search_substr(subst, st):
+    if subst.lower() in st.lower():
+        return 'Есть контакт!'
+    else:
+    	return 'Мимо!'
+print(search_substr('пол', 'полка'))
+2.
+def first_last(letter, st):
+    first = st.find(letter)
+    if first < 0:
+        return None, None
+    last = st.rfind(letter)
+    return first, last
+print(first_last('а', 'машина'))
+3.
+from collections import Counter
+def top3(st):
+    counter_top3 = Counter(st.replace(' ', '')).most_common(3)
+    return ', '.join([f'{letter} - {cnt}' for letter, cnt in counter_top3])
+print(top3('Не следует, однако, забывать о'))
+4.
+def camel(st):
+    result = ""
+    count = 0
+    for char in st:
+        if char.isalpha():
+            if count % 2 == 0:
+                result += char.upper()
+            else:
+                result += char.lower()
+            count += 1
+        else:
+            result += char
+    return result
+print(camel('свэг эщкере бро го отвисать на хате у черепа скр скр'))
+5. 
+def shortener(st):
+    result = ''
+    stack = []
+    for char in st:
+        if char == '(':
+            stack.append('(')
+        elif char == ')':
+            while stack and stack[-1] != '(':
+                stack.pop()
+            stack.pop()
+        elif not stack:
+            result += char
+    return result
+print(shortener('что(вопрос) такое(просто слово) рыба(животное)'))
+6.
+def cleaned_str(st):
+    clean_lst = []
+    for symbol in st:
+        if symbol == '@' and clean_lst:
+            clean_lst.pop()
+        elif symbol != '@':
+            clean_lst.append(symbol)
+    return ''.join(clean_lst)
+print(cleaned_str('попвкп@@@@чкарпа@@@'))
+
